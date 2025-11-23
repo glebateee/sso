@@ -24,6 +24,10 @@ func MustLoad() *Config {
 	if configPath == "" {
 		panic("path to config file is required")
 	}
+	return MustLoadByPath(configPath)
+}
+
+func MustLoadByPath(configPath string) *Config {
 	if _, err := os.Stat(configPath); err != nil {
 		panic("config file not found: " + configPath)
 	}
